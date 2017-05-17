@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 97a749f2852df434aafe16c6bfaf244d
+timeCreated: 1494659588
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Nyashi
+  fontNames:
+  - Nyashi
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
