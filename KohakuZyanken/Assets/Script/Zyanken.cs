@@ -54,6 +54,21 @@ public class Zyanken : MonoBehaviour {
         tyokiButton.SetActive(false);
     }
 
+    private void resetGuButton()
+    {
+        guButton.SetActive(false);
+    }
+
+    private void resetTyokiButton()
+    {
+        tyokiButton.SetActive(false);
+    }
+
+    private void resetPabutton()
+    {
+        paButton.SetActive(false);
+    }
+
     /// <summary>
     /// ループおよび例のごとくキーフレームの塊
     /// </summary>
@@ -91,6 +106,7 @@ public class Zyanken : MonoBehaviour {
     private void zyankenEffect02()
     {
         unityChanHand();        //Unityちゃんの手の内更新
+        viewMyHand();
         switch (unityChanState)
         {
             case 0:
@@ -104,6 +120,27 @@ public class Zyanken : MonoBehaviour {
             case 2:
                 ZyankenUnityChanImageControler.setPaImage();
                 UnityChanVoicePlayer.voicePlay12();     //「パー」
+                break;
+        }
+    }
+
+    /// <summary>
+    /// 自分の手だけを表示
+    /// </summary>
+    private void viewMyHand(){
+        switch (myState)
+        {
+            case 0:
+                resetPabutton();
+                resetTyokiButton();
+                break;
+            case 1:
+                resetGuButton();
+                resetPabutton();
+                break;
+            case 2:
+                resetGuButton();
+                resetTyokiButton();
                 break;
         }
     }
