@@ -9,6 +9,7 @@ public class SelectButton : MonoBehaviour {
     public GameObject select30Button;
     public GameObject selectText;
     private bool voice02Flg = false;
+    private GameObject refObj;
 
     // Use this for initialization
     void Start ()
@@ -17,6 +18,7 @@ public class SelectButton : MonoBehaviour {
         select20Button = GameObject.Find("select20Button");
         select30Button = GameObject.Find("select30Button");
         selectText = GameObject.Find("selectText");
+        refObj = GameObject.Find("unitychan");
         initButton();
     }
 	
@@ -50,7 +52,9 @@ public class SelectButton : MonoBehaviour {
         selectText.SetActive(true);
         if (!voice02Flg)
         {
-            UnityChanVoicePlayer.voicePlay02();
+            // UnityChanVoicePlayer.voicePlay02();
+            UnityChanVoicePlayer unityChanVoice = refObj.GetComponent<UnityChanVoicePlayer>();
+            unityChanVoice.voicePlay02();
             voice02Flg = true;
         }
         UnityChanChangeMotion.animator_kohaku.SetBool("pushStartButton", false);

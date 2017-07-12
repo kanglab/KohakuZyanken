@@ -13,6 +13,8 @@ public class Zyanken : MonoBehaviour {
     private int count;              //何回やったか
     public int myState;             //自分の手      0:グー, 1:チョキ, 2:パー
     private int unityChanState;     //Unityちゃんの手
+    private GameObject refObj;
+    private UnityChanVoicePlayer unitychanVoice;
     //試合結果状態
     private enum WinState
     {
@@ -34,6 +36,8 @@ public class Zyanken : MonoBehaviour {
         count = 0;
         startFlg = false;
         syncFlg = false;
+        refObj = GameObject.Find("unitychan");
+        unitychanVoice = refObj.GetComponent<UnityChanVoicePlayer>();
 	}
 	
 	// Update is called once per frame
@@ -97,7 +101,8 @@ public class Zyanken : MonoBehaviour {
     private void zyankenEffect01()
     {
         setZyankenButton();
-        UnityChanVoicePlayer.voicePlay09();
+        // UnityChanVoicePlayer.voicePlay09();
+        unitychanVoice.voicePlay09();
     }
 
     /// <summary>
@@ -111,15 +116,18 @@ public class Zyanken : MonoBehaviour {
         {
             case 0:
                 ZyankenUnityChanImageControler.setGuImage();
-                UnityChanVoicePlayer.voicePlay11();     //「グー」
+                // UnityChanVoicePlayer.voicePlay11();     //「グー」
+                unitychanVoice.voicePlay11();
                 break;
             case 1:
                 ZyankenUnityChanImageControler.setTyokiImage();
-                UnityChanVoicePlayer.voicePlay13();     //「チョキ」
+                // UnityChanVoicePlayer.voicePlay13();     //「チョキ」
+                unitychanVoice.voicePlay13();
                 break;
             case 2:
                 ZyankenUnityChanImageControler.setPaImage();
-                UnityChanVoicePlayer.voicePlay12();     //「パー」
+                // UnityChanVoicePlayer.voicePlay12();     //「パー」
+                unitychanVoice.voicePlay12();
                 break;
         }
     }
@@ -154,14 +162,17 @@ public class Zyanken : MonoBehaviour {
         {
             case WinState.win:
                 UnityChanChangeMotion.changeMotion03_on();
-                UnityChanVoicePlayer.voicePlay16();
+                // UnityChanVoicePlayer.voicePlay16();
+                unitychanVoice.voicePlay16();
                 break;
             case WinState.lose:
                 UnityChanChangeMotion.changeMotion04_on();
-                UnityChanVoicePlayer.voicePlay14();
+                // UnityChanVoicePlayer.voicePlay14();
+                unitychanVoice.voicePlay14();
                 break;
             case WinState.draw:
-                UnityChanVoicePlayer.voicePlay15();
+                // UnityChanVoicePlayer.voicePlay15();
+                unitychanVoice.voicePlay15();
                 break;
         }
         Invoke("backIdleMotion", 2.5f);

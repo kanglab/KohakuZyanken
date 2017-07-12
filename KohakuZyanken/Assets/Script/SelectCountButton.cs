@@ -9,6 +9,8 @@ public class SelectCountButton : MonoBehaviour {
     private GameObject select20Button;
     private GameObject select30Button;
     private GameObject selectText;
+    private GameObject refObj;
+    private UnityChanVoicePlayer unityChanVoice;
 
     void Start()
     {
@@ -16,6 +18,8 @@ public class SelectCountButton : MonoBehaviour {
         select20Button = GameObject.Find("select20Button");
         select30Button = GameObject.Find("select30Button");
         selectText = GameObject.Find("selectText");
+        refObj = GameObject.Find("unitychan");
+        unityChanVoice = refObj.GetComponent<UnityChanVoicePlayer>();
     }
 
     /// <summary>
@@ -51,7 +55,7 @@ public class SelectCountButton : MonoBehaviour {
                 break;
         }
         removeButton();
-        UnityChanVoicePlayer.voicePlay04();
+        unityChanVoice.voicePlay04();       //「おっけー」
     }
 
     private void removeButton()
@@ -66,29 +70,29 @@ public class SelectCountButton : MonoBehaviour {
     {
         Debug.Log("ready");
         UnityChanChangeMotion.changeMotion02_on();
-        UnityChanVoicePlayer.voicePlay03();
+        unityChanVoice.voicePlay03();
     }
     private void readyStart01()
     {
         UnityChanChangeMotion.changeMotion02_off();
         CountText.enableText();
-        CountText.count_text = "3";
-        UnityChanVoicePlayer.voicePlay05();         //スリー
+        CountText.count_text = "3";                 //スリー
+        unityChanVoice.voicePlay05();
     }
     private void readyStart02()
     {
-        CountText.count_text = "2";
-        UnityChanVoicePlayer.voicePlay06();         //ツー
+        CountText.count_text = "2";                 //ツー
+        unityChanVoice.voicePlay06();
     }
     private void readyStart03()
     {
-        CountText.count_text = "1";
-        UnityChanVoicePlayer.voicePlay07();         //ワン
+        CountText.count_text = "1";                 //ワン
+        unityChanVoice.voicePlay07();
     }
     private void readyStart04()
     {
-        CountText.count_text = "Start !";
-        UnityChanVoicePlayer.voicePlay08();         //スタート
+        CountText.count_text = "Start !";           //スタート
+        unityChanVoice.voicePlay08();
         Zyanken.Main();                             //ジャンケン開始
     }
 }

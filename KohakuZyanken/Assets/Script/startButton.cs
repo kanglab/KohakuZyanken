@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;      //SceneManager
 public class startButton : MonoBehaviour {
 
     public static GameObject start_button;
+    private GameObject refObj;
     void Start()
     {
         start_button = GameObject.Find("startButton");
@@ -15,8 +16,12 @@ public class startButton : MonoBehaviour {
         Debug.Log("Start Button Push !!");
         removeStartButton();
         startText.removeStartText();
-        UnityChanChangeMotion.changeMotion01();
-        UnityChanVoicePlayer.voicePlay01();             //私と一緒にゲームしよう
+        UnityChanChangeMotion unitychan_change_motion = GameObject.GetComponent<UnityChanChangeMotion>();
+        unitychan_change_motion.changeMotion01();
+        // UnityChanVoicePlayer.voicePlay01();             //私と一緒にゲームしよう
+        refObj = GameObject.Find("unitychan");
+        UnityChanVoicePlayer unitychanVoice = refObj.GetComponent<UnityChanVoicePlayer>();
+        unitychanVoice.voicePlay01();
         //SceneManager.LoadScene("Zyanken", LoadSceneMode.Additive);
         
 
